@@ -11,12 +11,64 @@
         font-family: sans-serif;
         color: #ffff;
       }
+      .lightmode {
+        background-color: #fff !important;
+        color: #000 !important;
+      }
+      .box-in {
+        padding: 8px;
+        border: 1px solid white;
+      }
     </style>
+    <script>
+      function toggleND(){
+        const bod = document.getElementByClassName("body")[0];
+        if(bod.classList.contains("lightmode")){
+          bod.classList.remove("lightmode");
+        } else {
+          bod.classList.add("lightmode");
+        }
+      }
+    </script>
   </head>
   <body>
     <div style="text-align: center">
-      <h1>BiZKiT's website</h1>
+      <h1 title="certified random person">BiZKiT's website</h1>
+      <div class="box-in"><button onclick="toggleND();">toggle day/night</button></div>
       <p>Hello! Welcome to my website!</p>
+      <h2>About me</h2>
+      <p>If you didn't realize already, I'm a web designer. I made this page for a domain just so I could have a fancy domain handle on BlueSky</p>
+      <p>I am well-versed in the following languages:</p>
+      <p>- PHP</p>
+      <p>- HTML (if you can call that a language)</p>
+      <p>- JavaScript</p>
+      <p>- Python (ish)</p>
+      <p>- Node.JS (if that's seperate from JavaScript)</p>
+      <h2>FactBits</h2>
+      <p>- Born in a small town in Alabama (just saying it will probably doxx me)</p>
+      <p>- Grasped the concept of the internet at the young age of 8!</p>
+      <p>- Born January 17th, 2005.</p>
+      <p>- I built a gaming PC using nothing but money earned from working at McDonald's!</p>
+      <p>- Created an unblocker program in school, never caught. (The extension that blocked stuff was poorly coded)</p>
+      <h2>Biography</h2>
+      <p>As a kid, I never took much thought in what family or country I was raised in. As a person who always wants to be in the know from day one, I've been using the internet since 2013 (when I was 8, yikes!) I remember my early days on the internet spent mostly browsing YouTube. I don't really know HOW I got into being on the internet, but let's just say I probably used an Android phone. Well anyways, back then I barely had a political opinion on anything, and it was only now, in the midst of all the stuff that happened in 2020 that I really discovered what I truly believed in. I suddenly had the ability to actually think for myself and not be lobbied in with the majority of people. As a person who lives in the US, I believe, like most Europeans and the sort, that the United States government probably needs a rework. I could go on and on about why, but that's not the point. The point is that people around me seem to be... how do I say this... <b>very very</b> uneducated and ignorant to the hard facts of reality. The founders of America didn't want a two party system. I can understand where he's coming from. Anyways, back to today, where I finally realized what I want out of this country, I kinda fell in the liberal pipeline on YouTube and my recommended has never been the same.</p>
+      <p><b>The pipeline is consuming my YouTube watch history <u>please send help.</u></p>
+      <p>The struggle is real though. Being liberal is tough when everyone around you thinks so differently. I feel like I have to keep a list of sources with me to even begin arguing with someone. And in the end, the other person just won't agree. People will stand by their point of view for the rest of time. It's a lot of things that made me realize. It's the people that I <b>DON'T</b> want to be associated with that made me think. I do and truly support LGBTQIA+ and inclusivity as a whole (especially trans rights when my close Discord friend, Sudaox (<a href="https://lucyj.xyz">their website</a>) is trans themselves. A lot of people just have a "doesn't affect me, why should I care" additude, especially when they don't know anyone online or in real life who is trans.</p>
+      <p>But yeah, through all the thick and thin, I've managed to find myself quite the following on YouTube. (<a href="https://www.youtube.com/@bizkit1337" target="_blank">link to YouTube here</a>)</p>
+      <p>I've been trying to find some things to talk about or do on my channel, but I've kind of put it aside as of now.</p>
+      <h2>Interests</h2>
+      <p>- Coding</p>
+      <p>- Politics (yeah, I don't know what in my brain decided I need to hyperfixate on this)</p>
+      <p>- Minecraft (the movie looks promising)</p>
+      <p>- Linux</p>
+      <p>- Nintendo, old and new</p>
+      <p>- Retro stuff</p>
+      <p>- I don't know what else to put here!</p>
+      <h1>Fastfetch</h1>
+      <p>Here is a FastFetch of my system, so you know what it looks like.</p>
+      <p><img src="img/fastfetch.png" alt="The image hasn't been added yet or doesn't exist!" /></p>
+      <h1>Cool Links</h1>
+      <a href="pdb/">pirate.debased (pirate.based clientside)</a>
     </div>
   </body>
 </html>
