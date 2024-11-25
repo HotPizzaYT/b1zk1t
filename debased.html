@@ -53,7 +53,7 @@
               document.getElementById("qpg").innerHTML += `<p><a href='?id=${item.id}'>${htmlspecialchars(item.name)}</a></p>`;
             })
         }
-        req.open("GET", "http://"+window["pbayServ"]+"/q.php?q="+encodeURIComponent(params.get("q")));
+        req.open("GET", "https://"+window["pbayServ"]+"/q.php?q="+encodeURIComponent(params.get("q")));
         req.responseType = "json";
 
         req.send(null);
