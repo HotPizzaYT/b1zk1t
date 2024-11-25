@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title id="title">pirate.debased</title>
+    <style>
+      body {
+        background-color: #2a2a2a;
+        color: #fff;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+      }
+      a {
+        color: #ff00ff;
+
+      }
+      a:visited {
+        color: #ff00ff;
+      }
+      a:active {
+        color: #00ffff;
+      }
+      .mainpg {
+        text-align: center;
+      }
+      .hidden {
+        display: none;
+      }
+      .sbx {
+        padding: 8px;
+        width: 500px;
+      }
+    </style>
+    <script>
+      function isString(vari){
+        return (typeof vari === "string");
+      }
+      function htmlspecialchars(str) {
+        if (typeof str !== "string") return str;
+
+        return str
+          .replace(/&/g, "&amp;") // Replace & with &amp;
+          .replace(/</g, "&lt;")  // Replace < with &lt;
+          .replace(/>/g, "&gt;")  // Replace > with &gt;
+          .replace(/"/g, "&quot;") // Replace " with &quot;
+          .replace(/'/g, "&#039;"); // Replace ' with &#039;
+      }
+      function getQuery(params){
+        const req = new XMLHttpRequest();
+
+        req.onload = (e) => {
+            document.getElementById("qpg").innerHTML = "<h1>Results</h1>";
+            e.forEach(item => {
+              document.getElementById("qpg").innerHTML += `<p><a href='?id=${item.id}'>${htmlspecialchars(item.name)}</a></p>`;
+            })
+        }
+        req.open("GET", "http://"+window["pbayServ"]+"/q.php?q="+encodeURIComponent(params.get("q")));
+        req.responseType = "json";
+
+        req.send(null);
+      }
+
+      function getId(id){
+      }
+      function init(event){
+        const urlParams = new URLSearchParams(window.location.search);
+        if(isString(urlParams.get("s"))){
+          window["pbayServ"] = urlParams.get("s");
+        } else {
+          window["pbayServ"] = "apibay.org";
+        }
+        console.log(urlParams);
+        if(typeof urlParams.get("q") === "string"){
+            document.getElementById("main").classList.add("hidden");
+            document.getElementById("qpg").classList.remove("hidden");
+            document.getElementById("qpg").innerHTML = "Loading...";
+            getQuery(urlParams);
+        }
+      }
+      function rmAll(){
+        document.getElementById("all").checked = false;
+      }
+      function setAll(){
+        // document.getElementById("all").checked = false;
+        document.getElementById("audio").checked = false;
+        document.getElementById("video").checked = false;
+        document.getElementById("app").checked = false;
+        document.getElementById("games").checked = false;
+        document.getElementById("porn").checked = false;
+        document.getElementById("other").checked = false;
+      }
+    </script>
+  </head>
+  <body onload="init(event)">
+    <div class="mainpg" id="main">
+      <h1 style="font-family: monospace; font-size: 6em">pirate.debased</h1>
+      <p><b>Search Torrents</b> | <a href="?top10=true">Top 100</a></p>
+      <form name="q">
+        <p><input type="text" id="sbx" name="q" class="sbx" placeholder="Pirate Search" required /></p>
+        <p>
+          <input id="all" type="checkbox" name="all" onclick="setAll();" checked="true"> All</input>
+          <input id="audio" type="checkbox" name="audio" onclick="rmAll();" > Audio</input>
+          <input id="video" type="checkbox" name="video" onclick="rmAll();" > Video</input>
+          <input id="app" type="checkbox" name="app" onclick="rmAll();" > Applications</input>
+          <input id="games" type="checkbox" name="game" onclick="rmAll();" > Games</input>
+          <input id="porn" type="checkbox" name="porn" onclick="rmAll();" > Porn</input>
+          <input id="other" type="checkbox" name="other" onclick="rmAll();" > Other</input>
+
+        </p>
+        <p>
+        <input type="submit" value="Pirate Search" /> <input type="submit" title="I'm Feeling Lucky" name="lucky" value="I'm Feeling Lucky">
+      </form>
+
+    </div>
+    <div class="query hidden" id="qpg">
+    </div>
+  </body>
+</html>
